@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {RopaComponent} from './component/ropa/ropa.component'
+import { RopaComponent } from './component/ropa/ropa.component';
+import { LoginComponent } from './component/login/login.component';
 
 const routes: Routes = [
   {
-    path:'', redirectTo:'/ropa', pathMatch:'full' 
+    path:'' , redirectTo:'/login', pathMatch:'full'
+  },
+  {
+    path:'login', component:LoginComponent
   },
   {
     path:'ropa', component:RopaComponent
