@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectorRef  } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RopaService } from 'src/app/service/ropa.service';
 import { InsertComponent } from '../insert/insert.component';
@@ -6,46 +6,89 @@ import { Ropa } from '../../model/model.ropa'
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-
+//import {ModalController} from '@angular/'
 @Component({
   selector: 'app-ropa',
   templateUrl: './ropa.component.html',
   styleUrls: ['./ropa.component.css']
 })
 export class RopaComponent implements OnInit {
-
-  ropas: Ropa[] = [];
+  //ropas: Ropa[] = [];
+  ropa:any;
+  title='CRUD ROPA'
   displayedColumns: string[] = ['id', 'Tipo', 'Marca', 'Nombre', 'Talla', 'Costo', 'Stock', 'Fecha', 'Acciones'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private dialog: MatDialog,
-    private ropaService: RopaService) { }
+
+  constructor(
+    private dialog: MatDialog,
+    private ropaService: RopaService,
+    private changeDetectorRefs: ChangeDetectorRef,
+    //private modalCtrl: ModalController
+    ) { }
 
   ngOnInit(): void {
     this.getRopa();
   }
 
   openDialogo() {
-    this.dialog.open(InsertComponent, {
-      width: '50%'
-    });
+     this.dialog.open(InsertComponent, {
+      width: '60%'
+    }).afterClosed().subscribe(val=>{
+      if(val ==='save'){
+        this.getRopa();
+      }
+    })
   }
 
-  getRopa() {
-    this.ropaService.getRopa().subscribe({
+  async getRopa() {
+    /*this.ropaService.getRopa().subscribe({
       next: (res) => {
-        //console.log(res);
-        this.dataSource = new MatTableDataSource(res);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+        this.dataSource= new MatTableDataSource(res)   
+         this.dataSource.paginator = this.paginator;
+         this.dataSource.sort = this.sort;
       },
       error: (err) => {
         alert("Erro al leer los datos")
       }
+    })*/
+  }
+
+  refresh() {
+    /*this.ropaService.getRopa().subscribe((res) => {
+      this.ropa = res;
+      this.dataSource = new MatTableDataSource(this.ropa.profile.languages.teach);
+      this.changeDetectorRefs.detectChanges();
+    });*/
+  }
+
+
+  editRopa(row:any){
+    this.dialog.open(InsertComponent,{
+      width:'60%',
+      data:row
+    }).afterClosed().subscribe(val=>{
+      if(val==='update'){
+        this.getRopa();
+        this.refresh();
+      }
     })
+  }
+
+  deleteRopa(id:any){
+    console.log(id)
+    this.ropaService.deletRopa(id).subscribe({
+      next:(res)=>{
+        alert("Prenda eliminada correctamente")
+        this.getRopa();
+      },
+      error:()=>{
+        alert("Error al eliminar prenda")
+      }
+    });
   }
 
   applyFilter(event: Event) {
@@ -56,5 +99,36 @@ export class RopaComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+ /* async presentModalOrigen() {
+		await this.loading.show();
+		const modal = await this.modalCtrl.create({
+			component: LoginUsuarioPassPage,
+			cssClass: 'change-address-shipping-modal',
+			backdropDismiss: true,
+			swipeToClose: true,
+			animated: true,
+			componentProps: {
+				Titulo: 'Login',
+			}
+		});
+		await this.loading.hide();
+		modal.onDidDismiss().then((modalDataResponse) => {
+
+			console.log(modalDataResponse);
+			if (modalDataResponse !== null) {
+				const modalData = modalDataResponse.data;
+				console.log('Modal Sent Data1 : ' + modalData);
+				this.usuario = modalData.usuario;
+				this.clave = modalData.clave;
+				if (!modalData.cerrar) {
+					this.login();
+				}
+			}
+		});*/
+
+		/*await modal.present();
+
+	}*/
 
 }

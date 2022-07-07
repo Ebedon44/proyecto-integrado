@@ -23,12 +23,18 @@ import { InsertComponent } from './component/insert/insert.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSortModule} from '@angular/material/sort';
+import { ProductosComponent } from './component/productos/productos.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+//import { FlexLayoutModule } from '@angular/flex-layout';
+//import {SidebarMdule} from 'ng-sidebar'
 @NgModule({
   declarations: [
     AppComponent,
     RopaComponent,
     LoginComponent,
-    InsertComponent
+    InsertComponent,
+    ProductosComponent
   ],
   imports: [
     BrowserModule,
@@ -44,12 +50,15 @@ import {MatSortModule} from '@angular/material/sort';
     MatSelectModule,
     MatDialogModule,
     MatInputModule,
+    MatGridListModule,
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    MatSortModule
+    MatSortModule,
+    MatCardModule,
+    //FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

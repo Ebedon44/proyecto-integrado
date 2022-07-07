@@ -14,18 +14,18 @@
     
         <mat-form-field appearance="outline">
             <mat-label>Marca de Prenda</mat-label>
-            <input formControlName="marca" matInput placeholder="Placeholder">
+            <input formControlName="marca" matInput placeholder="Marca">
         </mat-form-field>
     
     
         <mat-form-field appearance="outline">
             <mat-label>Nombre de la Prenda</mat-label>
-            <input formControlName="nombre" matInput placeholder="Placeholder">
+            <input formControlName="nombre" matInput placeholder="Nombre">
         </mat-form-field>
     
         <mat-form-field appearance="outline">
             <mat-label>Talla de la Prenda</mat-label>
-            <input formControlName="talla" matInput placeholder="Placeholder">
+            <input formControlName="talla" matInput placeholder="Talla">
         </mat-form-field>
     
         <mat-form-field appearance="outline">
@@ -35,7 +35,7 @@
     
         <mat-form-field appearance="outline">
             <mat-label>Cantidad de la Prenda</mat-label>
-            <input formControlName="cantidad" matInput type="number" placeholder="Placeholder">
+            <input formControlName="stock" matInput type="number" placeholder="Stock">
         </mat-form-field>
     
         <mat-form-field appearance="outline">
@@ -52,5 +52,5 @@
 
 <div mat-dialog-actions [align]="'end'">
     <button mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
-    <button style="margin: left 8px; ;" mat-raised-button color="primary" mat-dialog-close (click)="guardarRopa()">Guardar</button>
+    <button style="margin: left 8px; ;" mat-raised-button color="primary" mat-dialog-close (click)="guardarRopa()">{{actionBtn}}</button>
 </div>
