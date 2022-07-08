@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ChangeDetectorRef  } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RopaService } from 'src/app/service/ropa.service';
-import { InsertComponent } from '../insert/insert.component';
+import { InsertComponent } from '../insertProducto/insert.component';
 import { Ropa } from '../../model/model.ropa'
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -16,7 +16,7 @@ export class RopaComponent implements OnInit {
   //ropas: Ropa[] = [];
   ropa:any;
   title='CRUD ROPA'
-  displayedColumns: string[] = ['id', 'Tipo', 'Marca', 'Nombre', 'Talla', 'Costo', 'Stock', 'Fecha', 'Acciones'];
+  displayedColumns: string[] = ['ID', 'Tipo', 'Marca', 'Nombre', 'Talla', 'Costo', 'Stock', 'Fecha', 'Acciones'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -45,7 +45,7 @@ export class RopaComponent implements OnInit {
   }
 
   async getRopa() {
-    /*this.ropaService.getRopa().subscribe({
+    this.ropaService.getRopa().subscribe({
       next: (res) => {
         this.dataSource= new MatTableDataSource(res)   
          this.dataSource.paginator = this.paginator;
@@ -54,7 +54,7 @@ export class RopaComponent implements OnInit {
       error: (err) => {
         alert("Erro al leer los datos")
       }
-    })*/
+    })
   }
 
   refresh() {
