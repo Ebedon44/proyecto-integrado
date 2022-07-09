@@ -15,14 +15,16 @@ export class RopaService {
   getRopa(){
     return this.http.get<any>('http://localhost:5000/ropa');
   }
-  /*public getRopa() {
-    const url = '/ropa';//'http://localhost:1000/api/ropa/all'; 
+ /*  public getRopa2() {
+    const url = '/ropa';//'http://localhost:1000/imagen'; 
     return this.http.get(url);
-  }*/
+  } */
 
 getAll():Observable<any>{
   return this.http.get<any>('/ropa');
 }
 
 }
+
+
 
