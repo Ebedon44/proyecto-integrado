@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { RopaComponent } from './component/ropa/ropa.component';
 import { LoginComponent } from './component/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BusquedaPipe } from './busqueda/filter.pipe';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
@@ -32,6 +33,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { InsertClienteComponent } from './component/insert-cliente/insert-cliente.component';
 
+
 //import { FlexLayoutModule } from '@angular/flex-layout';
 //import {SidebarMdule} from 'ng-sidebar'
 @NgModule({
@@ -42,7 +44,8 @@ import { InsertClienteComponent } from './component/insert-cliente/insert-client
     InsertComponent,
     ProductosComponent,
     MenuComponent,
-    InsertClienteComponent
+    InsertClienteComponent,
+    BusquedaPipe
   ],
   imports: [
     BrowserModule,
