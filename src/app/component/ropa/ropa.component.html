@@ -12,22 +12,22 @@
     <div style="margin-top: 10px;">
         <mat-form-field appearance="standard">
             <mat-label>Filter</mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+            <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
           </mat-form-field>
           
           <div class="mat-elevation-z8">
             <table mat-table [dataSource]="dataSource" matSort>
           
               <!-- ID Column -->
-              <ng-container matColumnDef="id">
+              <ng-container matColumnDef="ID">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-                <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                <td mat-cell *matCellDef="let row"> {{row.idropa}} </td>
               </ng-container>
           
               <!-- Progress Column -->
               <ng-container matColumnDef="Tipo">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
-                <td mat-cell *matCellDef="let row"> {{row.tipo}} </td>
+                <td mat-cell *matCellDef="let row"> {{row.tipo}}</td>
               </ng-container>
           
               <!-- Name Column -->
@@ -69,10 +69,12 @@
               <ng-container matColumnDef="Acciones">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
                 <td mat-cell *matCellDef="let row"> 
-                    <button mat-icon-button color="primary">
+                    <button mat-icon-button (click)="editRopa(row)
+                    
+                    " color="primary">
                         <mat-icon>edit</mat-icon>
                       </button>  
-                      <button mat-icon-button color="warn">
+                      <button mat-icon-button (click)="deleteRopa(row.idropa)" color="warn">
                         <mat-icon>delete</mat-icon>
                       </button>  
                 </td>
