@@ -32,6 +32,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { InsertClienteComponent } from './component/insert-cliente/insert-cliente.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { SignupComponent } from './component/signup/signup.component'
 
 //import { FlexLayoutModule } from '@angular/flex-layout';
 //import {SidebarMdule} from 'ng-sidebar'
@@ -44,7 +46,8 @@ import { InsertClienteComponent } from './component/insert-cliente/insert-client
     ProductosComponent,
     MenuComponent,
     InsertClienteComponent,
-    BusquedaPipe
+    BusquedaPipe,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,8 @@ import { InsertClienteComponent } from './component/insert-cliente/insert-client
     MatCardModule,
     MatSidenavModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatSnackBarModule
     //FlexLayoutModule
   ],
   providers: [],
