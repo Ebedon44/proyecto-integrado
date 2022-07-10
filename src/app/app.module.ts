@@ -33,7 +33,6 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { InsertClienteComponent } from './component/insert-cliente/insert-cliente.component';
 
-
 //import { FlexLayoutModule } from '@angular/flex-layout';
 //import {SidebarMdule} from 'ng-sidebar'
 @NgModule({
