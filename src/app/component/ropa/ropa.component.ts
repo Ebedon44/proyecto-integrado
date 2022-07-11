@@ -6,6 +6,7 @@ import { Ropa } from '../../model/model.ropa'
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+
 //import {ModalController} from '@angular/'
 @Component({
   selector: 'app-ropa',
@@ -57,29 +58,24 @@ export class RopaComponent implements OnInit {
     })
   }
 
-  refresh() {
-    /*this.ropaService.getRopa().subscribe((res) => {
-      this.ropa = res;
-      this.dataSource = new MatTableDataSource(this.ropa.profile.languages.teach);
-      this.changeDetectorRefs.detectChanges();
-    });*/
-  }
-
-
   editRopa(row:any){
+    console.log(row);
+    row.idropa
+  
     this.dialog.open(InsertComponent,{
       width:'60%',
-      data:row
+    
     }).afterClosed().subscribe(val=>{
       if(val==='update'){
         this.getRopa();
-        this.refresh();
+      
       }
     })
   }
 
   deleteRopa(id:any){
     console.log(id)
+    id.idropa
     this.ropaService.deletRopa(id).subscribe({
       next:(res)=>{
         alert("Prenda eliminada correctamente")

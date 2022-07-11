@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import {  Observable } from 'rxjs';
+import {  BehaviorSubject, Observable } from 'rxjs';
 import {  catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class RopaService {
+
+  public search= new BehaviorSubject<string>("");
 
   constructor(private http: HttpClient) { }
 
