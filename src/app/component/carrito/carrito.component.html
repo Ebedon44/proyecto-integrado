@@ -1,0 +1,46 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example">
+        <mat-icon>supervised_user_circle</mat-icon>
+    </button>
+    <span>TIENDA DE ROPA CDCD</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="warn" (click)="openDialogo()">Agregar</button>
+  
+  </mat-toolbar>
+  <div class="form-group">
+    <input type="text" class="form-control" [(ngModel)]='searchTerm' (keyup)="search($event)" placeholder="Buscar Productos">
+  </div>
+  <span class="fas fa-search seacrh-icon"></span>
+  
+  <div class="card-top container-fluid">
+  
+  </div>
+  
+  
+  
+    <div class="container" style="width: 50vw;  height: 50vw ">
+      <div class="row">
+        <table *ngFor="let p of data | filter:searchKey: 'tipo' ">
+          <div class="card col-md-5">
+            <img style="margin: auto ;" src="{{p.imagen}}" alt="" >        
+          </div >
+          <div >
+            <h2 >{{p.nombre}}</h2>
+            <h3>US$ {{p.costo}}</h3>
+            <a>Talla: {{p.talla}}</a>
+            
+          </div>
+          <div>
+            <input type="number" name="q" min="1" max="10" step="1" value="2"> 
+            <button mat-icon-button color="warn">
+              <mat-icon>add_shopping_cart</mat-icon>
+            </button> 
+          </div>
+        </table>
+    
+    
+    
+      </div>
+    </div>
+  
+  
