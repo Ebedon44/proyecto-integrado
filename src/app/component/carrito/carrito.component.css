@@ -1,0 +1,61 @@
+.example-card {
+    max-width: 400px;
+  }
+  .example-spacer{
+    flex: 1 1 auto;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  mat-grid-tile {
+    background: lightblue;
+  }
+  example-spacer{
+    flex: 1 1 auto;
+  }
+  table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .item{
+    margin: 0px 15px;
+    text-align: center;
+  }
+  
+  .item a:hover{
+    color: blue;
+  }
+  
+  
+  .container{
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+   .card{
+    padding: 20px;
+    margin: 35px;
+   }
+  .card img {
+    width: 200;
+    height: 200px;
+    margin-bottom: 15px;
+    transition: 0.3 ease-in-out;
+  }
+  .car img:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+  } 
+  .h5{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis; 
+    max-width:100ch;
+  }
