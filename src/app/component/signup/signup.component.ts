@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { InsertClienteComponent } from '../insert-cliente/insert-cliente.component';
 
 @Component({
   selector: 'app-signup',
@@ -31,13 +32,13 @@ export class SignupComponent implements OnInit {
 
   openDialogo() {
     this.dialog
-      .open(InsertComponent, {
+      .open(InsertClienteComponent, {
         width: '60%',
       })
       .afterClosed()
       .subscribe((val) => {
         if (val === 'save') {
-          this.getRopa();
+          this.getSignup();
         }
       });
   }
@@ -60,7 +61,7 @@ export class SignupComponent implements OnInit {
     row.idusuario;
 
     this.dialog
-      .open(InsertComponent, {
+      .open(InsertClienteComponent, {
         width: '60%',
       })
       .afterClosed()
