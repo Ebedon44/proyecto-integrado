@@ -1,9 +1,38 @@
-<p>login works!</p>
-<a routerLink="/ropa" target="_blank">INVENTARIO DE ROPA</a>
-<a routerLink="/menu" target="_blank">MENU</a>
-<br>
-<a routerLink="/productos" target="_blank">PRODUCTOS</a>
-<br>
-<a routerLink="/cliente" target="_blank">TABLA CLIENTE</a>
-<br>
-
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row mt20">
+      <div class="col-md-6 offset-md-3">
+        <mat-card class="text-center">
+          <div class="container text-center">
+            <img src="../../../assets/imagenes/logo-removebg-preview (2).png" />
+          </div>
+          <h1 class="text-center">LOGIN</h1>
+          <form action="">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Usuario</mat-label>
+              <input required matInput placeholder="Enter here" />
+              <mat-hint>Nombre de usuario válido</mat-hint>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Contraseña</mat-label>
+              <input
+                type="password"
+                required
+                matInput
+                placeholder="Enter here"
+              />
+            </mat-form-field>
+            <div class="container" class="mt20">
+              <button mat-raised-button color="primary" type="submit">
+                Login
+              </button>
+              <button routerLink="/signup" class="ml10" mat-raised-button color="accent">
+                Register
+              </button>
+            </div>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
