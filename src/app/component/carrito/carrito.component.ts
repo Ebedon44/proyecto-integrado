@@ -18,8 +18,12 @@ export class CarritoComponent implements OnInit {
   data: any = []
   searchKey: string = "";
   public searchTerm: string = '';
+  products!: Ropa[];
 
-  constructor(private dialog: MatDialog, private ropaService: RopaService) { }
+  constructor(
+    private dialog: MatDialog, 
+    private ropaService: RopaService
+    ){}
 
   obtenerCarrito(){
     return this.carrito;
@@ -27,6 +31,10 @@ export class CarritoComponent implements OnInit {
 
   obtenerCarritoNumeroItems(){
     return this.carritoNumeroItems;
+  }
+
+  addCart(product: Ropa){
+    
   }
 
 
@@ -47,6 +55,7 @@ export class CarritoComponent implements OnInit {
       }
     })
   }
+
 
   async getRopa() {
     this.ropaService.getRopa().subscribe({
