@@ -1,59 +1,51 @@
-
 <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" aria-label="Example">
-        <mat-icon>supervised_user_circle</mat-icon>
-    </button>
-    <span>TIENDA DE ROPA CDCD</span>
-    <span class="example-spacer"></span>
-    <button mat-raised-button color="warn" (click)="openDialogo()">Agregar</button>
-  
-  </mat-toolbar>
-  <div class="form-group">
-    <input type="text" class="form-control" [(ngModel)]='searchTerm' (keyup)="search($event)" placeholder="Buscar Productos">
-  </div>
-  <span class="fas fa-search seacrh-icon"></span>
-  
-  <div class="card-top container-fluid">
-  
-  </div>
-  
-  
-  
-    <div class="container" style="width: 50vw;  height: 50vw ">
-      <div class="row">
-        <table *ngFor="let p of data | filter:searchKey: 'tipo' ">
-          <div class="card col-md-5">
-            <img style="margin: auto ;" src="{{p.imagen}}" alt="" >        
-          </div >
-          <div >
-            <h2 >{{p.nombre}}</h2>
-            <h3>US$ {{p.costo}}</h3>
-            <a>Talla: {{p.talla}}</a>
-            
-          </div>
-          <div>
-            <input type="number" name="q" min="1" max="10" step="1" value="2"> 
-            <button mat-icon-button color="warn">
-              <mat-icon>add_shopping_cart</mat-icon>
-            </button> 
-          </div>
-        </table>
+  <button mat-icon-button class="example-icon" aria-label="Example">
+    <mat-icon>supervised_user_circle</mat-icon>
+  </button>
+  <span>TIENDA DE ROPA CDCD</span>
+  <span class="example-spacer"></span>
+  <button mat-raised-button color="warn" (click)="openDialogo()">Agregar</button>
+
+</mat-toolbar>
+<div class="form-group">
+  <input type="text" class="form-control" [(ngModel)]='searchTerm' (keyup)="search($event)"
+    placeholder="Buscar Productos">
+</div>
+<span class="fas fa-search seacrh-icon"></span>
+
+<div class="card-top container-fluid">
+
+</div>
+
+<ng-template let-product pTemplate="listItem">
+  <div class="p-col-12">
+
+    <div class="product-list-item">
+      <div class="product-list-detail">
+        <img style="margin: auto ;" src="{{product.imagen}}" alt="">
+        <div class="product-name">{{product.tipo}}</div>
+
+        <div class="product-description">{{product.nombre}}</div>
+        <i class="pi pi-tag product-category-icon"></i><span class="product-category">{{product.category}}</span>
+      </div>
+      <div class="product-list-action">
+        <span class="product-price">${{product.precio}}</span>
       </div>
     </div>
+  </div>
+</ng-template>
 
 
-    <div class="container">
-      <div class="row">
-          <main id="items" class="col-sm-8 row"></main>
-          
-          <aside class="col-sm-4">
-              <h2>Carrito</h2>
-              <ul id="carrito" class="list-group"></ul>
-              <hr>
-              <p class="text-right">Total: <span id="total"></span>&euro;</p>
-              <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
-          </aside>
-      </div>
-  </div> 
-  
-  
+<div class="container">
+  <div class="row">
+    <main id="items" class="col-sm-8 row"></main>
+
+    <aside class="col-sm-4">
+      <h2>Carrito</h2>
+      <ul id="carrito" class="list-group"></ul>
+      <hr>
+      <p class="text-right">Total: <span id="total"></span>&euro;</p>
+      <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+    </aside>
+  </div>
+</div>

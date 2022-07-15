@@ -3,15 +3,18 @@ import { RopaService } from 'src/app/service/ropa.service';
 import { InsertComponent } from '../insertProducto/insert.component';
 import { MatDialog } from '@angular/material/dialog';
 import { BehaviorSubject } from 'rxjs';
-import { Ropa } from 'src/app/model/model.ropa';
+import { EstadoPedido, productoPedido, Ropa, Venta } from 'src/app/model/model.ropa';
+
 
 @Component({
   selector: 'app-carrito',
   templateUrl: './carrito.component.html',
-  styleUrls: ['./carrito.component.css']
+  styleUrls: ['./carrito.component.scss']
 })
 export class CarritoComponent implements OnInit {
 
+  pedido!: Venta;
+  
   private carrito = [];
   private carritoNumeroItems = new BehaviorSubject(0);
 
@@ -21,27 +24,63 @@ export class CarritoComponent implements OnInit {
   products!: Ropa[];
 
   constructor(
-    private dialog: MatDialog, 
+    private dialog: MatDialog,
     private ropaService: RopaService
-    ){}
+  ) { }
 
-  obtenerCarrito(){
-    return this.carrito;
+
+
+  initCarrito() {
+    this.pedido = {
+      idventa: 0,
+      idropa: 0,
+      idusuario: 0,
+      productos: [],
+      fecha: new Date(),
+      cantidad: 0,
+      subtotal: 0,
+      total: 0
+    }
   }
 
-  obtenerCarritoNumeroItems(){
+
+  loadCarrito() {
+
+  }
+
+  getCarrito() {
     return this.carritoNumeroItems;
   }
 
-  addCart(product: Ropa){
-    
+  addProducto(producto: Ropa) {
+    const item = this.pedido.productos.find(productoPedido => {
+      return (productoPedido.producto.id === producto.id)
+    });
+    if (item !== undefined) {
+      item.cantidad ++;
+    } else{
+      const add : productoPedido = {
+        cantidad: 1,
+        producto,
+      }
+      this.pedido.productos.push()
+    }
+    console.log('EN ADD PEDIDO ->', this.pedido);
+  }
+
+  removeProducto(producto: Ropa) {
+
+  }
+
+  realizarPedido(producto: Ropa) {
+
   }
 
 
   ngOnInit(): void {
     this.getRopa();
-    
-    this.ropaService.search.subscribe((val:any)=>{
+
+    this.ropaService.search.subscribe((val: any) => {
       this.searchKey = val;
     })
   }
@@ -81,35 +120,35 @@ export class CarritoComponent implements OnInit {
         alert("Erro al leer los datos")
       }
     })
-      
+
   }
 
-  editRopa(idropa:any){
-    this.dialog.open(InsertComponent,{
-      width:'60%',
-      data:idropa
-    }).afterClosed().subscribe(val=>{
-      if(val==='update'){
+  editRopa(idropa: any) {
+    this.dialog.open(InsertComponent, {
+      width: '60%',
+      data: idropa
+    }).afterClosed().subscribe(val => {
+      if (val === 'update') {
         this.getRopa();
         //this.refresh();
       }
     })
   }
-  deleteRopa(id:any){
+  deleteRopa(id: any) {
     console.log(id.idropa)
     this.ropaService.deletRopa(id.idropa).subscribe({
-      next:(res)=>{
+      next: (res) => {
         alert("Prenda eliminada correctamente")
         this.getRopa();
       },
-      error:()=>{
+      error: () => {
         alert("Error al eliminar prenda")
       }
     });
   }
 
-  search(event:any){
-    this.searchTerm=(event.target as HTMLInputElement).value;
+  search(event: any) {
+    this.searchTerm = (event.target as HTMLInputElement).value;
     this.ropaService.search.next(this.searchTerm);
   }
 

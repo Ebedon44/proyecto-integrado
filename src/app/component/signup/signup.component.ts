@@ -9,7 +9,7 @@ import { InsertClienteComponent } from '../insert-cliente/insert-cliente.compone
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css'],
+  styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent implements OnInit {
   signup: any;
