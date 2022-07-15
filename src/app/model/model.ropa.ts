@@ -6,5 +6,5 @@ export interface Ropa{
     talla:string,
     costo:number,
     imagen:string,
-    fecha:Date
+    fecha:string
 }
