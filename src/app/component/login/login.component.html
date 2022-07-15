@@ -47,6 +47,11 @@
               </button>
             </div>
           </form>
+
+          <div class="alert alert-danger" *ngIf="errorStatus">
+            <p>{{ errorMsg }}</p>
+          </div>
+          
         </mat-card>
       </div>
     </div>
