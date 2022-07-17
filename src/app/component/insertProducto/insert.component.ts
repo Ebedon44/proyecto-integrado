@@ -9,7 +9,7 @@ import { RopaComponent } from '../ropa/ropa.component';
 @Component({
   selector: 'app-insert',
   templateUrl: './insert.component.html',
-  styleUrls: ['./insert.component.scss']
+  styleUrls: ['./insert.component.css']
 })
 export class InsertComponent implements OnInit {
 
