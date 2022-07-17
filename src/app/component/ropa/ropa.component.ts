@@ -11,7 +11,7 @@ import { MatTableDataSource } from '@angular/material/table';
 @Component({
   selector: 'app-ropa',
   templateUrl: './ropa.component.html',
-  styleUrls: ['./ropa.component.css']
+  styleUrls: ['./ropa.component.scss']
 })
 export class RopaComponent implements OnInit {
   //ropas: Ropa[] = [];

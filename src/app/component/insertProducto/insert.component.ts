@@ -15,7 +15,7 @@ interface HtmlInputEvent extends Event {
 @Component({
   selector: 'app-insert',
   templateUrl: './insert.component.html',
-  styleUrls: ['./insert.component.css']
+  styleUrls: ['./insert.component.scss']
 })
 export class InsertComponent implements OnInit {
   imagenes: any = [];

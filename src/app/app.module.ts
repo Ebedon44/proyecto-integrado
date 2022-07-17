@@ -51,7 +51,7 @@ import { NgToastModule } from 'ng-angular-popup';
     InsertClienteComponent,
     BusquedaPipe,
     SignupComponent,
-    CarritoComponent
+    CarritoComponent,
   ],
   imports: [
     BrowserModule,
