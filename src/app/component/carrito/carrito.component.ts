@@ -123,12 +123,12 @@ export class CarritoComponent implements OnInit {
 
   }
 
-  editRopa(idropa:any){
-    this.dialog.open(InsertComponent,{
-      width:'60%',
-      data:idropa
-    }).afterClosed().subscribe(val=>{
-      if(val==='update'){
+  editRopa(idropa: any) {
+    this.dialog.open(InsertComponent, {
+      width: '60%',
+      data: idropa
+    }).afterClosed().subscribe(val => {
+      if (val === 'update') {
         this.getRopa();
         //this.refresh();
       }
