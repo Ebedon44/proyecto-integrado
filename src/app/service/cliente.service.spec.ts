@@ -5,12 +5,12 @@ import { ClienteService } from './cliente.service';
 describe('ClienteService', () => {
   let service: ClienteService;
 
- /* beforeEach(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(ClienteService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
-  });*/
+  });
 });

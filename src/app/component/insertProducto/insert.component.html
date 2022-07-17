@@ -5,43 +5,39 @@
         <mat-form-field appearance="outline">
             <mat-label>Tipo de Prenda</mat-label>
             <mat-select formControlName="tipo" placeholder="Tipo">
-                <mat-option value="Pantalon">Pantalón</mat-option>
+                <mat-option value="Pantalon">Pantalon</mat-option>
                 <mat-option value="Camiseta">Camiseta</mat-option>
                 <mat-option value="Buso">Buso</mat-option>
                 <mat-option value="Pantaloneta">Pantaloneta</mat-option>
-                <mat-option value="Calentador">Calentador</mat-option>
-                <mat-option value="Calcetines">Calcetines</mat-option>
-                <mat-option value="Camisa">Camisa</mat-option>
-                <mat-option value="Chompa">Chompa</mat-option>
             </mat-select>
         </mat-form-field>
-
+    
         <mat-form-field appearance="outline">
             <mat-label>Marca de Prenda</mat-label>
             <input formControlName="marca" matInput placeholder="Marca">
         </mat-form-field>
-
-
+    
+    
         <mat-form-field appearance="outline">
             <mat-label>Nombre de la Prenda</mat-label>
             <input formControlName="nombre" matInput placeholder="Nombre">
         </mat-form-field>
-
+    
         <mat-form-field appearance="outline">
             <mat-label>Talla de la Prenda</mat-label>
             <input formControlName="talla" matInput placeholder="Talla">
         </mat-form-field>
-
+    
         <mat-form-field appearance="outline">
             <mat-label>Costo de la Prenda</mat-label>
             <input formControlName="costo" matInput type="number" placeholder="$$">
         </mat-form-field>
-
+    
         <mat-form-field appearance="outline">
             <mat-label>Cantidad de la Prenda</mat-label>
             <input formControlName="stock" matInput type="number" placeholder="Stock">
         </mat-form-field>
-
+    
         <mat-form-field appearance="outline">
             <mat-label>Choose a date</mat-label>
             <input formControlName="fecha" matInput [matDatepicker]="picker">
@@ -49,19 +45,12 @@
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-
-        <input type="file" (change)="onPhotoSelected($event)" #photoInput>
-        <div *ngIf="pre">
-            <img width="200px" [src]="pre" alt="">
-            <button style="margin: left 8px; ;" mat-raised-button color="warn" (click)="clearImage()">Clear</button>
-        </div>
     </form>
+   
 
 </div>
 
 <div mat-dialog-actions [align]="'end'">
     <button mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
- 
-    <button style="margin: left 8px; ;" mat-raised-button color="primary" mat-dialog-close
-        (click)="guardarRopa()">{{actionBtn}}</button>
+    <button style="margin: left 8px; ;" mat-raised-button color="primary" mat-dialog-close (click)="guardarRopa()">{{actionBtn}}</button>
 </div>

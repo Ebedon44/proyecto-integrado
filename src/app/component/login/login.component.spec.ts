@@ -6,7 +6,7 @@ describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
-  /*beforeEach(async () => {
+  beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ LoginComponent ]
     })
@@ -21,5 +21,5 @@ describe('LoginComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });*/
+  });
 });

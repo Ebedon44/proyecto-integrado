@@ -6,7 +6,7 @@ describe('RopaComponent', () => {
   let component: RopaComponent;
   let fixture: ComponentFixture<RopaComponent>;
 
-  /*beforeEach(async () => {
+  beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ RopaComponent ]
     })
@@ -21,5 +21,5 @@ describe('RopaComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });*/
+  });
 });

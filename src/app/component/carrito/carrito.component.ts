@@ -113,7 +113,6 @@ export class CarritoComponent implements OnInit {
             tipo: element.tipo
           }
           this.data.push(resAux)
-          
         });
 
       },
@@ -130,8 +129,7 @@ export class CarritoComponent implements OnInit {
       data:idropa
     }).afterClosed().subscribe(val=>{
       if(val==='update'){
-        //window.location.reload()
-        //this.getRopa();
+        this.getRopa();
         //this.refresh();
       }
     })
@@ -142,7 +140,6 @@ export class CarritoComponent implements OnInit {
       next: (res) => {
         alert("Prenda eliminada correctamente")
         this.getRopa();
-       
       },
       error: () => {
         alert("Error al eliminar prenda")

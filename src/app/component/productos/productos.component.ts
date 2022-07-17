@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RopaService } from 'src/app/service/ropa.service';
 import { InsertComponent } from '../insertProducto/insert.component';
 import { MatDialog } from '@angular/material/dialog';
-import { NgToastService } from 'ng-angular-popup';
+
+
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
@@ -12,8 +13,7 @@ export class ProductosComponent implements OnInit {
   data: any = []
   searchKey: string = "";
   public searchTerm: string = '';
-  constructor(private dialog: MatDialog, private ropaService: RopaService,
-    private toast: NgToastService) { }
+  constructor(private dialog: MatDialog, private ropaService: RopaService) { }
 
   ngOnInit(): void {
     this.getRopa();
@@ -65,7 +65,6 @@ export class ProductosComponent implements OnInit {
     }).afterClosed().subscribe(val=>{
       if(val==='update'){
         this.getRopa();
-        window.location.reload()
         //this.refresh();
       }
     })
@@ -74,10 +73,8 @@ export class ProductosComponent implements OnInit {
     console.log(id.idropa)
     this.ropaService.deletRopa(id.idropa).subscribe({
       next:(res)=>{
-        
         alert("Prenda eliminada correctamente")
         this.getRopa();
-        window.location.reload();
       },
       error:()=>{
         alert("Error al eliminar prenda")
@@ -90,5 +87,6 @@ export class ProductosComponent implements OnInit {
     this.ropaService.search.next(this.searchTerm);
   }
 
-  
+
+
 }

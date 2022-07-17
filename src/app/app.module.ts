@@ -35,7 +35,6 @@ import { InsertClienteComponent } from './component/insert-cliente/insert-client
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SignupComponent } from './component/signup/signup.component'
 import { CarritoComponent } from './component/carrito/carrito.component';
-import { NgToastModule } from 'ng-angular-popup';
 
 
 //import { FlexLayoutModule } from '@angular/flex-layout';
@@ -78,9 +77,7 @@ import { NgToastModule } from 'ng-angular-popup';
     MatSidenavModule,
     MatDividerModule,
     MatListModule,
-    MatSnackBarModule,
-    NgToastModule,
-    MatDialogModule
+    MatSnackBarModule
     //FlexLayoutModule
   ],
   providers: [],
