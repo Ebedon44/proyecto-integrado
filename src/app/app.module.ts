@@ -50,7 +50,7 @@ import { CarritoComponent } from './component/carrito/carrito.component';
     InsertClienteComponent,
     BusquedaPipe,
     SignupComponent,
-    CarritoComponent
+    CarritoComponent,
   ],
   imports: [
     BrowserModule,
