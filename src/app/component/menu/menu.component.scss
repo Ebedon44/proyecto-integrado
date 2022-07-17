@@ -19,13 +19,14 @@ mat-drawer {
 
 .logo {
   text-align: center;
-  padding: 2.6rem ;
+  padding: 2.6rem;
 }
 
 img {
   width: 200px;
   height: 100;
 }
+
 .mat-icon {
   vertical-align: center;
   margin-right: 1rem;
@@ -41,36 +42,29 @@ img {
   font-size: 0.8rem;
   height: 44px !important;
   margin-bottom: 4px;
-
- /* ::ng-deep {
-    .mat-list-item-content {
-      border-radius: 5px;
-      margin: 0.8px; &:hover {
-        background: #2c3344 !important;
-      }
-    }
-  }*/
+}
+.mat-list-item ::ng-deep .mat-list-item-content {
+  border-radius: 5px;
+  margin: 0.8px;
+}
+.mat-list-item ::ng-deep .mat-list-item-content:hover {
+  background: #2c3344 !important;
 }
 
 .list-item-active {
-  color: #f2f5f7; 
-  /*::ng-deep {
-    .mat-list-item-content {
-      background: #2c33aa !important;
+  color: #f2f5f7;
+}
+.list-item-active ::ng-deep .mat-list-item-content {
+  background: #2c33aa !important;
+}
+.list-item-active ::ng-deep .mat-list-item-content:hover {
+  background: #2c3344 !important;
+}
 
-      &:hover {
-        background: #2c3344 !important;
-      }
-    }*/
-
-  }
-
-
-.mat-subheader{
+.mat-subheader {
   color: #818cf8;
   font-size: 0.6rem;
   height: 44px !important;
   margin-bottom: 4px;
   letter-spacing: 1px;
-
 }
