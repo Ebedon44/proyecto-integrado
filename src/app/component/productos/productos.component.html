@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <button mat-icon-button class="example-icon" aria-label="Example">
-      <mat-icon>supervised_user_circle</mat-icon>
+    <mat-icon>supervised_user_circle</mat-icon>
   </button>
   <span>TIENDA DE ROPA CDCD</span>
   <span class="example-spacer"></span>
@@ -8,10 +8,10 @@
 
 </mat-toolbar>
 <div class="form-group">
-  <input type="text" class="form-control" [(ngModel)]='searchTerm' (keyup)="search($event)" placeholder="Buscar Productos">
+  <input type="text" class="form-control" [(ngModel)]='searchTerm' (keyup)="search($event)"
+    placeholder="Buscar Productos">
 </div>
-<span class="fas fa-search seacrh-icon"></span>
- 
+<span class="fa fa-search search-icon"></span>
 
 <div class="card-top container-fluid">
 
@@ -19,20 +19,39 @@
 
 <div class="container">
   <div class="row">
-    <ng-container *ngFor="let p of data | filter:searchKey: 'tipo' ">
+    <ng-container *ngFor="let p of data | filter:searchKey: 'nombre' ">
       <div class="card col-md-5">
-        <img src="../../../assets/imagenes/logo-removebg-preview (2).png" alt="">
-        <h5 >{{p.tipo}}</h5>
-        <a>{{p.idropa}}</a>
-        <p></p>
-        <p></p>
-        <button mat-icon-button (click)="editRopa(p)" color="primary">
-          <mat-icon>edit</mat-icon>
-        </button>  
-        <button mat-icon-button (click)="deleteRopa(p)" color="warn">
-          <mat-icon>delete</mat-icon>
-        </button>  
-        
+
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{p.nombre}}</mat-card-title>
+            <br>
+            <mat-card-subtitle>{{p.tipo}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image style="margin: auto ;" src="{{p.imagen}}" alt="Imagen de la prenda">
+          <br>
+          <mat-card-content>
+            <p>
+              <b>Marca: </b> {{p.marca}}
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <b>Talla: </b> {{p.talla}} <br>
+              <b>Stock: </b> {{p.stock}} existencias &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+              <b>Precio: </b>{{p.costo}}$
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-icon-button (click)="editRopa(p)" color="primary">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteRopa(p)" color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+
+          </mat-card-actions>
+        </mat-card>
+
+
       </div>
     </ng-container>
 

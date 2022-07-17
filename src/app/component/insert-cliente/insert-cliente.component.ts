@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { signupService } from 'src/app/service/signup.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-insert-cliente',
@@ -15,6 +16,7 @@ export class InsertClienteComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private signUpService: signupService,
+    private toast:NgToastService,
     @Inject(MAT_DIALOG_DATA) public editData: any,
     private dialogRef: MatDialogRef<InsertClienteComponent>
   ) {}

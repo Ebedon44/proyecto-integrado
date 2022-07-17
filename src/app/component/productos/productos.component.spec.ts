@@ -6,7 +6,7 @@ describe('ProductosComponent', () => {
   let component: ProductosComponent;
   let fixture: ComponentFixture<ProductosComponent>;
 
-  beforeEach(async () => {
+  /*beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ProductosComponent ]
     })
@@ -19,7 +19,16 @@ describe('ProductosComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+ /* it('should create', () => {
     expect(component).toBeTruthy();
-  });
+  })*/
+
+  //Esta Prueba sirve para saber si nuestro componenete de productos se crea y se instancia 
+  it('Debe exisitir el componenete de productos para inicializar',()=>{
+    fixture = TestBed.createComponent(ProductosComponent);
+    const app = fixture.componentInstance
+    expect(app).toBeTruthy();  //espero que el componente exista 
+  }) ;
+
+  
 });

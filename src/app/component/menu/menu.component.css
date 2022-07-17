@@ -10,6 +10,7 @@ mat-drawer {
 
 mat-drawer-container {
   height: 100%;
+  background-color: white;
 }
 
 mat-drawer {
@@ -41,29 +42,29 @@ img {
   height: 44px !important;
   margin-bottom: 4px;
 
-  ::ng-deep {
+ /* ::ng-deep {
     .mat-list-item-content {
       border-radius: 5px;
       margin: 0.8px; &:hover {
         background: #2c3344 !important;
       }
     }
-  }
+  }*/
 }
 
 .list-item-active {
   color: #f2f5f7; 
-  ::ng-deep {
+  /*::ng-deep {
     .mat-list-item-content {
       background: #2c33aa !important;
 
       &:hover {
         background: #2c3344 !important;
       }
-    }
+    }*/
 
   }
-}
+
 
 .mat-subheader{
   color: #818cf8;
