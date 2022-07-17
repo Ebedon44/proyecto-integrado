@@ -6,7 +6,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'app-insert-cliente',
   templateUrl: './insert-cliente.component.html',
-  styleUrls: ['./insert-cliente.component.css'],
+  styleUrls: ['./insert-cliente.component.scss'],
 })
 export class InsertClienteComponent implements OnInit {
   signupForm!: FormGroup;

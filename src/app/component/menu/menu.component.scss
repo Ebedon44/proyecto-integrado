@@ -41,6 +41,10 @@ img {
   font-size: 0.8rem;
   height: 44px !important;
   margin-bottom: 4px;
+<<<<<<< HEAD:src/app/component/menu/menu.component.scss
+<<<<<<< HEAD:src/app/component/menu/menu.component.scss
+=======
+>>>>>>> 7912b3992148ff9e740052ecdf7fe226ce111d98:src/app/component/menu/menu.component.css
 }
 .mat-list-item ::ng-deep .mat-list-item-content {
   border-radius: 5px;
@@ -48,6 +52,7 @@ img {
 }
 .mat-list-item ::ng-deep .mat-list-item-content:hover {
   background: #2c3344 !important;
+<<<<<<< HEAD:src/app/component/menu/menu.component.scss
 }
 
 .list-item-active {
@@ -61,6 +66,36 @@ img {
 }
 
 .mat-subheader {
+=======
+
+  ::ng-deep {
+    .mat-list-item-content {
+      border-radius: 5px;
+      margin: 0.8px; &:hover {
+        background: #2c3344 !important;
+      }
+    }
+  }
+=======
+>>>>>>> 7912b3992148ff9e740052ecdf7fe226ce111d98:src/app/component/menu/menu.component.css
+}
+
+.list-item-active {
+  color: #f2f5f7;
+}
+.list-item-active ::ng-deep .mat-list-item-content {
+  background: #2c33aa !important;
+}
+.list-item-active ::ng-deep .mat-list-item-content:hover {
+  background: #2c3344 !important;
+}
+
+<<<<<<< HEAD:src/app/component/menu/menu.component.scss
+.mat-subheader{
+>>>>>>> parent of 50c5786 (Pestaña productos terminada):src/app/component/menu/menu.component.css
+=======
+.mat-subheader {
+>>>>>>> 7912b3992148ff9e740052ecdf7fe226ce111d98:src/app/component/menu/menu.component.css
   color: #818cf8;
   font-size: 0.6rem;
   height: 44px !important;

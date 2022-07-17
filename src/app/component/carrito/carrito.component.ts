@@ -9,7 +9,7 @@ import { EstadoPedido, productoPedido, Ropa, Venta } from 'src/app/model/model.r
 @Component({
   selector: 'app-carrito',
   templateUrl: './carrito.component.html',
-  styleUrls: ['./carrito.component.css']
+  styleUrls: ['./carrito.component.scss']
 })
 export class CarritoComponent implements OnInit {
 
