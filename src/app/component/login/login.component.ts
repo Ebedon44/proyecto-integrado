@@ -18,14 +18,20 @@ export class LoginComponent implements OnInit {
 
   constructor(private loginService: LoginService, private router: Router) {}
 
+  errorStatus: boolean = false;
+  errorMsg: any = '';
+
   ngOnInit(): void {}
 
   onLogin(form: loginI) {
     this.loginService.loginByEmail(form).subscribe((data) => {
-      // let dataResponse: ResponseI = data;
-      //if (dataResponse.status == '201 Created') {
-      this.router.navigate(['ropa']);
-      // }
+      let dataResponse: ResponseI = data;
+     // if (dataResponse.status == 'ok') {
+        this.router.navigate(['ropa']);
+      //} else {
+        //this.errorStatus = true;
+       // this.errorMsg = dataResponse.result.error_msg;
+     // }
     });
   }
 }

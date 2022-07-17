@@ -1,10 +1,8 @@
-import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { signupService } from 'src/app/service/signup.service';
-import { MatDialog } from '@angular/material/dialog';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { InsertClienteComponent } from '../insert-cliente/insert-cliente.component';
+import { signupI } from 'src/app/model/signup.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -12,77 +10,21 @@ import { InsertClienteComponent } from '../insert-cliente/insert-cliente.compone
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent implements OnInit {
-  signup: any;
-  title = 'Usuarios';
-  displayedColumns: string[] = ['ID', 'Usuario'];
-  dataSource!: MatTableDataSource<any>;
+  signupForm = new FormGroup({
+    idrol: new FormControl('', Validators.required),
+    nombre: new FormControl('', Validators.required),
+    contrasena: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
+    telefono: new FormControl('', Validators.required),
+    direccion: new FormControl('', Validators.required),
+  });
+  constructor(private signupService: signupService, private router: Router) {}
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
+  ngOnInit(): void {}
 
-  constructor(
-    private dialog: MatDialog,
-    private signUpService: signupService,
-    private changeDetectorRefs: ChangeDetectorRef
-  ) {}
-
-  ngOnInit(): void {
-    this;
-  }
-
-  openDialogo() {
-    this.dialog
-      .open(InsertClienteComponent, {
-        width: '60%',
-      })
-      .afterClosed()
-      .subscribe((val) => {
-        if (val === 'save') {
-          this.getSignup();
-        }
-      });
-  }
-
-  async getSignup() {
-    this.signUpService.getSignup().subscribe({
-      next: (res) => {
-        this.dataSource = new MatTableDataSource(res);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-      },
-      error: (err) => {
-        alert('Erro al leer los datos');
-      },
-    });
-  }
-
-  editSignup(row: any) {
-    console.log(row);
-    row.idusuario;
-
-    this.dialog
-      .open(InsertClienteComponent, {
-        width: '60%',
-      })
-      .afterClosed()
-      .subscribe((val) => {
-        if (val === 'update') {
-          this.getSignup();
-        }
-      });
-  }
-
-  deleteSignup(id: any) {
-    console.log(id);
-    id.idusuario;
-    this.signUpService.deleteSignup(id).subscribe({
-      next: (res) => {
-        alert('Usuario eliminado correctamente');
-        this.getSignup();
-      },
-      error: () => {
-        alert('Error al eliminar usuario');
-      },
+  register(form: signupI) {
+    this.signupService.postSignup(form).subscribe((data) => {
+      this.router.navigate(['login']);
     });
   }
 }
