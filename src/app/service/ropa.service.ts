@@ -45,7 +45,7 @@ export class RopaService {
   postImagen(photo:File){
     const fd = new FormData();
     fd.append('image',photo)
-    return this.http.post('http://localhost:4000/api/photos',fd)
+    return this.http.post('http://localhost:3001/api/photos',fd)
   }
   /*getImagen(id:string){
     return this.http.get<any>('http://localhost:4000/api/photos/'+id);

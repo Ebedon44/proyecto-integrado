@@ -73,7 +73,7 @@ export class InsertComponent implements OnInit {
           talla: this.ropaForm.value.talla,
           costo: this.ropaForm.value.costo,
           stock: this.ropaForm.value.stock,
-          imagen: "http://localhost:4000/"+this.nuevoId,
+          imagen: "http://localhost:3001/"+this.nuevoId,
         
           fecha: this.ropaForm.value.fecha
       })
