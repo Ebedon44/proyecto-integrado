@@ -15,7 +15,7 @@ body a{
 	-o-transition: 0.5s all;
 }
 .header{
-	background:#000;
+	background:rgb(28, 0, 138);
 	padding: 1.5% 0;
 }
 .header-left{
@@ -50,7 +50,7 @@ body a{
  }
  .menu li a:hover ,.menu li.active a{
 	 background:#fff;
-	 color:#000;
+	 color:rgb(0, 0, 0);
  } 
  #nav .current a {
 	 color:red;
@@ -86,7 +86,7 @@ body a{
 		width: 95%;
 		position: absolute;
 		right: 20px;
-		background: #222;
+		background: rgb(34, 34, 34);
 		top: 72px;
 		z-index: 111;
     }
@@ -203,7 +203,7 @@ body a{
 }
 .sb-icon-search {
 	color: #FFF;
-background: #000 url('../images/img-sprite.png') no-repeat 0px 1px;
+background: rgb(28, 0, 138) url('../images/img-sprite.png') no-repeat 0px 1px;
 z-index: 90;
 }
 /* Open state */
@@ -770,7 +770,7 @@ p.m_5{
 }
 /*--footer--*/
 .footer{
-	background:#000;
+	background:rgb(28, 0, 138);
 	padding:5% 0;
 }		
 ul.footer_box{
