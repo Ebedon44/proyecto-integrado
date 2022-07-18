@@ -47,7 +47,20 @@ export class InsertComponent implements OnInit {
   guardarRopa() {
     if (!this.editData) {
       if (this.ropaForm.valid) {
-        this.ropaService.postRopa(this.ropaForm.value)
+        console.log(this.ropaForm);
+        this.ropaService.postRopa({
+      
+          tipo: this.ropaForm.value.tipo,
+          marca: this.ropaForm.value.marca,
+          nombre: this.ropaForm.value.nombre,
+          talla: this.ropaForm.value.talla,
+          costo: this.ropaForm.value.costo,
+          stock: this.ropaForm.value.stock,
+          imagen: "http://localhost:3001/"+this.nuevoId,
+        
+          fecha: this.ropaForm.value.fecha
+      })
+      
           .subscribe({
             next: (res) => {
               alert("Producto agregado correctamente")
