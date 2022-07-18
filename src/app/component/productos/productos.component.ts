@@ -3,6 +3,7 @@ import { RopaService } from 'src/app/service/ropa.service';
 import { InsertComponent } from '../insertProducto/insert.component';
 import { MatDialog } from '@angular/material/dialog';
 import { NgToastService } from 'ng-angular-popup';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
@@ -17,7 +18,7 @@ export class ProductosComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRopa();
-    this.ropaService.search.subscribe((val:any)=>{
+    this.ropaService.search.subscribe((val: any) => {
       this.searchKey = val;
     })
   }
@@ -50,45 +51,63 @@ export class ProductosComponent implements OnInit {
           }
           this.data.push(resAux)
         });
-
       },
       error: (err) => {
-        alert("Erro al leer los datos")
+        alert("Error al leer los datos")
       }
     })
   }
 
-  editRopa(idropa:any){
-    this.dialog.open(InsertComponent,{
-      width:'60%',
-      data:idropa
-    }).afterClosed().subscribe(val=>{
-      if(val==='update'){
+  editRopa(idropa: any) {
+    this.dialog.open(InsertComponent, {
+      width: '60%',
+      data: idropa
+    }).afterClosed().subscribe(val => {
+      if (val === 'update') {
         this.getRopa();
         window.location.reload()
-        //this.refresh();
       }
     })
   }
-  deleteRopa(id:any){
+  deleteRopa(id: any) {
     console.log(id.idropa)
     this.ropaService.deletRopa(id.idropa).subscribe({
-      next:(res)=>{
-        
-        alert("Prenda eliminada correctamente")
+      next: (res) => {
         this.getRopa();
-        window.location.reload();
       },
-      error:()=>{
-        alert("Error al eliminar prenda")
+      error: () => {
       }
     });
   }
 
-  search(event:any){
-    this.searchTerm=(event.target as HTMLInputElement).value;
+  openDialogoConfirmacion(id:any) {
+    Swal.fire({
+      title: 'Esta seguro de eliminar el registro',
+      text: 'Si se elimina no se podria recuperar el registro! ',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, estoy seguro!',
+      cancelButtonText: 'No, cancelar'
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire(
+          'OK',
+          'Registro borrado correctamente',
+          'success',
+        )
+        this.deleteRopa(id)
+         window.location.reload();
+
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+       
+
+      }
+    })
+  }
+  search(event: any) {
+    this.searchTerm = (event.target as HTMLInputElement).value;
     this.ropaService.search.next(this.searchTerm);
   }
 
-  
+
 }
