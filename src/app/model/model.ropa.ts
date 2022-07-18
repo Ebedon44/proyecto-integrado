@@ -8,7 +8,6 @@ export interface Ropa{
     imagen:string,
     fecha:Date
 }
-
 export interface Usuario{
     idusuario:number,
     idrol:number,
@@ -18,17 +17,18 @@ export interface Usuario{
     telefono:string,
     direccion:string
 }
-
 export interface Venta{
     idventa:number,
     idropa:number,
     idusuario:number,
-    producto:Ropa[],
-    fecha:string,
+    productos:productoPedido[],
+    fecha:Date,
     cantidad:number,
     subtotal:number,
     total:number
 }
-
+export interface productoPedido{
+    producto: Ropa;
+    cantidad: number;
+}
 export type EstadoPedido = 'enviado' | 'visto' | 'camino' | 'entregado';
-

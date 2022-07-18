@@ -35,6 +35,7 @@ import { InsertClienteComponent } from './component/insert-cliente/insert-client
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SignupComponent } from './component/signup/signup.component'
 import { CarritoComponent } from './component/carrito/carrito.component';
+import { AboutComponent } from './component/about/about.component';
 
 
 //import { FlexLayoutModule } from '@angular/flex-layout';
@@ -50,7 +51,8 @@ import { CarritoComponent } from './component/carrito/carrito.component';
     InsertClienteComponent,
     BusquedaPipe,
     SignupComponent,
-    CarritoComponent
+    CarritoComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

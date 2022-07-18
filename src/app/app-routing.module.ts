@@ -7,6 +7,7 @@ import { MenuComponent } from './component/menu/menu.component';
 import { InsertClienteComponent } from './component/insert-cliente/insert-cliente.component';
 import { SignupComponent } from './component/signup/signup.component';
 import { CarritoComponent } from './component/carrito/carrito.component';
+import { AboutComponent } from './component/about/about.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,9 @@ const routes: Routes = [
   },
   {
     path:'carrito', component:CarritoComponent
+  },
+  {
+    path:'about', component:AboutComponent
   }
 ];
 
