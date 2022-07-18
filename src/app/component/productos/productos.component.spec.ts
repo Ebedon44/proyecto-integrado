@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialog } from '@angular/material/dialog';
 
 import { ProductosComponent } from './productos.component';
 
@@ -8,7 +9,7 @@ describe('ProductosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProductosComponent ]
+      imports:[MatDialog],declarations: [ ProductosComponent ]
     })
     .compileComponents();
   });
@@ -19,7 +20,16 @@ describe('ProductosComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+ /* it('should create', () => {
     expect(component).toBeTruthy();
-  });
+  })*/
+
+  //Esta Prueba sirve para saber si nuestro componenete de productos se crea y se instancia 
+  it('Debe exisitir el componenete de productos para inicializar',()=>{
+    fixture = TestBed.createComponent(ProductosComponent);
+    const app = fixture.componentInstance
+    expect(app).toBeTruthy();  //espero que el componente exista 
+  }) ;
+
+  
 });

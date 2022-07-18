@@ -111,6 +111,7 @@ export class CarritoComponent implements OnInit {
             tipo: element.tipo
           }
           this.data.push(resAux)
+          
         });
       },
       error: (err) => {
@@ -118,13 +119,15 @@ export class CarritoComponent implements OnInit {
       }
     })
   }
-  editRopa(idropa: any) {
-    this.dialog.open(InsertComponent, {
-      width: '60%',
-      data: idropa
-    }).afterClosed().subscribe(val => {
-      if (val === 'update') {
-        this.getRopa();
+
+  editRopa(idropa:any){
+    this.dialog.open(InsertComponent,{
+      width:'60%',
+      data:idropa
+    }).afterClosed().subscribe(val=>{
+      if(val==='update'){
+        //window.location.reload()
+        //this.getRopa();
         //this.refresh();
       }
     })
@@ -135,6 +138,7 @@ export class CarritoComponent implements OnInit {
       next: (res) => {
         alert("Prenda eliminada correctamente")
         this.getRopa();
+       
       },
       error: () => {
         alert("Error al eliminar prenda")

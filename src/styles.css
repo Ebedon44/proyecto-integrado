@@ -9,3 +9,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import '/assets/css/bootstrap.css';
 @import '/assets/css/style.css';
 @import url("https:/cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css");
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

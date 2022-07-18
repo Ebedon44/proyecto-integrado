@@ -36,6 +36,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SignupComponent } from './component/signup/signup.component'
 import { CarritoComponent } from './component/carrito/carrito.component';
 import { AboutComponent } from './component/about/about.component';
+import { NgToastModule } from 'ng-angular-popup';
 
 
 //import { FlexLayoutModule } from '@angular/flex-layout';
@@ -79,7 +80,9 @@ import { AboutComponent } from './component/about/about.component';
     MatSidenavModule,
     MatDividerModule,
     MatListModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgToastModule,
+    MatDialogModule
     //FlexLayoutModule
   ],
   providers: [],
