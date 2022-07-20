@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     this.loginService.loginByEmail(form).subscribe((data) => {
       let dataResponse: ResponseI = data;
       if (!dataResponse.status) {
-        this.router.navigate(['ropa']);
+        this.router.navigate(['home']);
       } else {
         this.errorStatus = true;
         this.errorMsg = 'Usuario o contrasena incorrecto';
