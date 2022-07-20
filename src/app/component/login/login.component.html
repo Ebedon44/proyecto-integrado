@@ -9,7 +9,7 @@
           <h1 class="text-center">LOGIN</h1>
           <form [formGroup]="loginForm">
             <mat-form-field class="full-width" appearance="outline">
-              <mat-label>Usuario</mat-label>
+              <mat-label>Correo</mat-label>
               <input
                 formControlName="usuario"
                 required
@@ -33,6 +33,7 @@
                 mat-raised-button
                 color="primary"
                 type="submit"
+                [disabled]="loginForm.invalid"
               >
                 Login
               </button>

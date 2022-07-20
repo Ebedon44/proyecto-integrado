@@ -12,8 +12,14 @@ import { ResponseI } from 'src/app/model/response.interface';
 })
 export class LoginComponent implements OnInit {
   loginForm = new FormGroup({
-    usuario: new FormControl('', Validators.required),
-    contrasena: new FormControl('', Validators.required),
+    usuario: new FormControl('', [
+      Validators.required,
+      Validators.nullValidator,
+    ]),
+    contrasena: new FormControl('', [
+      Validators.required,
+      Validators.nullValidator,
+    ]),
   });
   constructor(private loginService: LoginService, private router: Router) {}
 
