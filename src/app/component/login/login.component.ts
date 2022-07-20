@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
     usuario: new FormControl('', [
       Validators.required,
       Validators.nullValidator,
+      Validators.email,
     ]),
     contrasena: new FormControl('', [
       Validators.required,
