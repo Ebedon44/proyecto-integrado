@@ -1,0 +1,89 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example">
+        <mat-icon>supervised_user_circle</mat-icon>
+    </button>
+    <span>TIENDA DE ROPA CDCD</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="warn" (click)="openDialogo()">Agregar</button>
+
+</mat-toolbar>
+
+<div class="container">
+    <div style="margin-top: 10px;">
+        <mat-form-field appearance="standard">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+          </mat-form-field>
+          
+          <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSourceVenta" matSort>
+          
+              <!-- ID Column -->
+              <ng-container matColumnDef="idventa">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Id-venta </th>
+                <td mat-cell *matCellDef="let row"> {{row.idventa}} </td>
+              </ng-container>
+          
+              <!-- Progress Column -->
+              <ng-container matColumnDef="idropa">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Id-Ropa </th>
+                <td mat-cell *matCellDef="let row"> {{row.idropa}}</td>
+              </ng-container>
+          
+              <!-- Name Column -->
+              <ng-container matColumnDef="idusuario">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Id-Usuario </th>
+                <td mat-cell *matCellDef="let row"> {{row.idusuario}} </td>
+              </ng-container>
+          
+              <!-- Fruit Column -->
+              <ng-container matColumnDef="cantidad">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Cantidad </th>
+                <td mat-cell *matCellDef="let row"> {{row.cantidad}} </td>
+              </ng-container>
+
+              <!-- Fruit Column -->
+              <ng-container matColumnDef="subtotal">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Sub-Total </th>
+                <td mat-cell *matCellDef="let row"> {{row.subtotal}} </td>
+              </ng-container>
+
+              <!-- Fruit Column -->
+              <ng-container matColumnDef="total">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Total </th>
+                <td mat-cell *matCellDef="let row"> {{row.total | currency}} </td>
+              </ng-container>
+
+              <!-- Fruit Column -->
+              <ng-container matColumnDef="fecha">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> fecha </th>
+                <td mat-cell *matCellDef="let row"> {{row.fecha | date}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Acciones">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+                <td mat-cell *matCellDef="let row"> 
+                    <button mat-icon-button (click)="editVenta(row)" color="primary">
+                        <mat-icon>edit</mat-icon>
+                      </button>  
+                      <button mat-icon-button (click)="deleteVenta(row)" color="warn">
+                        <mat-icon>delete</mat-icon>
+                      </button>  
+                </td>
+              </ng-container>
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          
+              <!-- Row shown when there is no matching data. -->
+              <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+              </tr>
+            </table>
+          
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+          </div>
+    
+    </div>
+
+</div>

@@ -1,0 +1,59 @@
+<h1 mat-dialog-title style="color: black"> Agregar Venta</h1>
+<div mat-dialog-content>
+
+    <form [formGroup]="ventaForm">
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>idventa</mat-label>
+            <input formControlName="idventa" matInput placeholder="idventa">
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>idropa</mat-label>
+            <input formControlName="idropa" matInput placeholder="idropa">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>idusuario</mat-label>
+            <input formControlName="idusuario" matInput placeholder="idusuario">
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>cantidad </mat-label>
+            <input formControlName="cantidad" matInput type="number" placeholder="cantidad">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Subtotal</mat-label>
+            <input formControlName="subtotal" matInput type="number" placeholder="$$">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>total</mat-label>
+            <input formControlName="total" matInput type="number" placeholder="$$">
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>Choose a date</mat-label>
+            <input formControlName="fecha" matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+
+    </form>
+
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
+ 
+    <button style="margin: left 8px; ;" mat-raised-button color="primary" mat-dialog-close
+        (click)="guardarVenta()">{{actionBtn}}</button>
+    
+</div>

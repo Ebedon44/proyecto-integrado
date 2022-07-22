@@ -1,22 +1,26 @@
-
-    <mat-nav-list>
-      <div class="logo py-4">
-        <img src="../../../assets/imagenes/logo-removebg-preview (2).png">
-      </div>
-      <mat-divider></mat-divider>
-      <h2 matSubheader class="mt-2">ADMINISTRACION</h2>
-      <a mat-list-item routerLink="ropa" routerLinkActive="list-item-active">
-        <mat-icon>supervised_user_circle</mat-icon> Inventario
-      </a>
-      <a mat-list-item routerLink="carrito" routerLinkActive="list-item-active">
-        <mat-icon>description</mat-icon> Carrito
-      </a>
-      <a mat-list-item routerLink="productos" routerLinkActive="list-item-active">
-        <mat-icon>description</mat-icon> Productos
-      </a>
-      
-      
-
-    </mat-nav-list>
-
- 
+<mat-nav-list>
+  <div class="logo py-4">
+    <img src="../../../assets/imagenes/logo-removebg-preview (2).png" />
+  </div>
+  <mat-divider></mat-divider>
+  <h2 matSubheader class="mt-2">ADMINISTRACION</h2>
+  <a mat-list-item routerLink="ropa" routerLinkActive="list-item-active">
+    <mat-icon>supervised_user_circle</mat-icon> Inventario
+  </a>
+  <a mat-list-item routerLink="usuarios" routerLinkActive="list-item-active">
+    <mat-icon>supervised_user_circle</mat-icon> Usuarios
+  </a>
+  <a mat-list-item routerLink="ventas" routerLinkActive="list-item-active">
+    <mat-icon>description</mat-icon> Ventas
+  </a>
+  <a mat-list-item routerLink="carrito" routerLinkActive="list-item-active">
+    <mat-icon>description</mat-icon> Carrito
+  </a>
+  <a mat-list-item routerLink="productos" routerLinkActive="list-item-active">
+    <mat-icon>description</mat-icon> Productos
+  </a>
+  <br />
+  <a mat-list-item routerLink="/login" routerLinkActive="list-item-active">
+    <mat-icon>logout</mat-icon> Cerrar Sesion
+  </a>
+</mat-nav-list>

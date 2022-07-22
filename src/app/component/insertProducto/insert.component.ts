@@ -25,7 +25,8 @@ export class InsertComponent implements OnInit {
   ropaForm !: FormGroup;
   actionBtn: string = "Guardar"
   idImagen!: string;
-  nuevoId!: string
+  nuevoId!: string;
+
 
 
   constructor(private formBuilder: FormBuilder,
