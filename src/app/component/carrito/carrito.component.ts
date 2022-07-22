@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { RopaService } from 'src/app/service/ropa.service';
 import { InsertComponent } from '../insertProducto/insert.component';
 import { MatDialog } from '@angular/material/dialog';
-import { BehaviorSubject } from 'rxjs';
-import { EstadoPedido, productoPedido, Ropa, Venta } from 'src/app/model/model.ropa';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Ropa, Venta } from 'src/app/model/model.ropa';
 import { DomSanitizer } from '@angular/platform-browser';
+import { CarritoService } from 'src/app/service/carrito.service';
 
 @Component({
   selector: 'app-carrito',
@@ -13,12 +14,11 @@ import { DomSanitizer } from '@angular/platform-browser';
   
 })
 export class CarritoComponent implements OnInit {
-  pedido!: Venta;
 
-  @Input()
-  producto!: Ropa;
-  private carrito = [];
-  private carritoNumeroItems = new BehaviorSubject(0);
+  total: number = 0;
+  ventas : Venta[] = [];
+  ropas : Ropa[] = [];
+
   data: any = []
   searchKey: string = "";
   public searchTerm: string = '';
@@ -26,63 +26,23 @@ export class CarritoComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private ropaService: RopaService,
-    public sanitizer: DomSanitizer
+    public sanitizer: DomSanitizer,
+    private carritoService: CarritoService
   ) { }
-
-
-  initCarrito() {
-    this.pedido = {
-      idventa: 0,
-      idropa: 0,
-      idusuario: 0,
-      productos: [],
-      fecha: new Date(),
-      cantidad: 0,
-      subtotal: 0,
-      total: 0
-    }
-  }
-
-  addCarrito(){
-    this.addProducto(this.producto);
-  }
-
-  loadCarrito() {
-  }
-  
-  getCarrito() {
-    return this.carritoNumeroItems;
-  }
-
-  addProducto(producto: Ropa) {
-    const item = this.pedido.productos.find(productoPedido => {
-      return (productoPedido.producto.id === producto.id)
-    });
-    if (item !== undefined) {
-      item.cantidad++;
-    } else {
-      const add: productoPedido = {
-        cantidad: 1,
-        producto,
-      }
-      this.pedido.productos.push()
-    }
-    console.log('EN ADD PEDIDO ->', this.pedido);
-  }
-
-  removeProducto(producto: Ropa) {
-  }
-
-  realizarPedido(producto: Ropa) {
-  }
-
-
 
   ngOnInit(): void {
     this.getRopa();
     this.ropaService.search.subscribe((val: any) => {
       this.searchKey = val;
     })
+
+    this.carritoService.ropas
+    .subscribe(data => this.ventas = data);
+
+    this.ventas.forEach(venta =>{
+      this.total += venta.cantidad * venta.ropa.costo;
+    })
+
   }
   openDialogo() {
     this.dialog.open(InsertComponent, {

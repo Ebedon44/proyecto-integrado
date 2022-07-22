@@ -15,7 +15,7 @@ body a{
 	-o-transition: 0.5s all;
 }
 .header{
-	background:rgb(28, 0, 138);
+	background:#3f51b5;
 	padding: 1.5% 0;
 }
 .header-left{
@@ -770,7 +770,7 @@ p.m_5{
 }
 /*--footer--*/
 .footer{
-	background:rgb(28, 0, 138);
+	background:#3f51b5;
 	padding:5% 0;
 }		
 ul.footer_box{

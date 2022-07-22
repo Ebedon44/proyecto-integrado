@@ -5,30 +5,31 @@ export interface Ropa{
     nombre:string,
     talla:string,
     costo:number,
+    stock:number,
     imagen:string,
     fecha:Date
 }
 export interface Usuario{
-    idusuario:number,
-    idrol:number,
+    id:number,
+    idrol:Rol,
     nombre:string,
     contrasena:string,
     email:string,
     telefono:string,
     direccion:string
 }
+
+export interface Rol{
+    id:number,
+    nombrerol:string
+}
+
 export interface Venta{
     idventa:number,
-    idropa:number,
-    idusuario:number,
-    productos:productoPedido[],
+    ropa:Ropa,
+    usuario:Usuario,
     fecha:Date,
     cantidad:number,
     subtotal:number,
     total:number
 }
-export interface productoPedido{
-    producto: Ropa;
-    cantidad: number;
-}
-export type EstadoPedido = 'enviado' | 'visto' | 'camino' | 'entregado';
