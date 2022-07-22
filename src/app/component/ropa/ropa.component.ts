@@ -27,8 +27,7 @@ export class RopaComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private ropaService: RopaService,
-    private changeDetectorRefs: ChangeDetectorRef,
-    //private modalCtrl: ModalController
+    private changeDetectorRefs: ChangeDetectorRef
     ) { }
 
   ngOnInit(): void {

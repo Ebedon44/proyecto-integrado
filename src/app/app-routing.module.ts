@@ -8,6 +8,8 @@ import { InsertClienteComponent } from './component/insert-cliente/insert-client
 import { SignupComponent } from './component/signup/signup.component';
 import { CarritoComponent } from './component/carrito/carrito.component';
 import { AboutComponent } from './component/about/about.component';
+import { UsuariosComponent } from './component/usuarios/usuarios.component';
+import { VentasComponent } from './component/ventas/ventas.component';
 
 const routes: Routes = [
   {
@@ -36,6 +38,12 @@ const routes: Routes = [
   },
   {
     path:'about', component:AboutComponent
+  },
+  {
+    path:'usuarios', component:UsuariosComponent
+  },
+  {
+    path:'ventas', component:VentasComponent
   }
 ];
 

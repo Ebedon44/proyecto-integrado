@@ -37,6 +37,9 @@ import { SignupComponent } from './component/signup/signup.component'
 import { CarritoComponent } from './component/carrito/carrito.component';
 import { AboutComponent } from './component/about/about.component';
 import { NgToastModule } from 'ng-angular-popup';
+import { UsuariosComponent } from './component/usuarios/usuarios.component';
+import { VentasComponent } from './component/ventas/ventas.component';
+import { InsertVentaComponent } from './component/insert-venta/insert-venta.component';
 
 
 //import { FlexLayoutModule } from '@angular/flex-layout';
@@ -53,7 +56,10 @@ import { NgToastModule } from 'ng-angular-popup';
     BusquedaPipe,
     SignupComponent,
     CarritoComponent,
-    AboutComponent
+    AboutComponent,
+    UsuariosComponent,
+    VentasComponent,
+    InsertVentaComponent
   ],
   imports: [
     BrowserModule,
