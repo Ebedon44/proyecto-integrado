@@ -59,7 +59,6 @@ export class CarritoComponent implements OnInit {
     for (let index = 0; index < this.tablacarrito.length; index++) {
  
      totalventas += parseFloat(this.tablacarrito[index].costo)
-     console.log(totalventas)
       
     }
     this.total = totalventas
@@ -100,31 +99,6 @@ export class CarritoComponent implements OnInit {
     })
   }
 
-  editRopa(idropa:any){
-    this.dialog.open(InsertComponent,{
-      width:'60%',
-      data:idropa
-    }).afterClosed().subscribe(val=>{
-      if(val==='update'){
-        //window.location.reload()
-        //this.getRopa();
-        //this.refresh();
-      }
-    })
-  }
-  deleteRopa(id: any) {
-    console.log(id.idropa)
-    this.ropaService.deletRopa(id.idropa).subscribe({
-      next: (res) => {
-        alert("Prenda eliminada correctamente")
-        this.getRopa();
-       
-      },
-      error: () => {
-        alert("Error al eliminar prenda")
-      }
-    });
-  }
   search(event: any) {
     this.searchTerm = (event.target as HTMLInputElement).value;
     this.ropaService.search.next(this.searchTerm);
@@ -149,7 +123,7 @@ export class CarritoComponent implements OnInit {
         });
       },
       error: (err) => {
-        alert("Erro al leer los datos")
+        alert("Error al leer los datos")
       }
     })
   }

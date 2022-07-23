@@ -65,10 +65,7 @@
                </a></li>
 
                 <div class="clear"></div>
-                <div>
-                  <input type="text" class="form-control" [(ngModel)]='searchTerm' (keyup)="search($event)"
-                    placeholder="Buscar Productos">
-                </div>
+                
               </ul>
               <script type="text/javascript" src="./js/responsive-nav.js"></script>
             </div>
@@ -92,19 +89,8 @@
                   <li class="list_img"><img src="images/1.jpg" alt="" /></li>
                   
                   <li class="list_desc">
-                    <table class=" table">
-                      <tbody>
-                        <ng-container *ngFor="let p of tablacarrito">
-                          <tr>
-                            <td>{{p.tipo}}</td>
-                            <td>{{p.costo}}</td>
-                            <td>{{p.nombre}}</td>
-                          </tr>
-                        </ng-container>
-                      </tbody>
-                      
-                    </table>
-                   
+                    <h4><a href="#">velit esse molestie</a></h4><span class="actual">1 x
+                      $12.00</span>
                   </li>
 
                   <div class="login_buttons">
@@ -129,66 +115,53 @@
       <div class="container">
         <div class="row shop_box-top">
 
-          <ng-container *ngFor="let p of data | filter:searchKey: 'tipo' ">
-          <div class="col-md-3 shop_box">
-            
-					<img src="../../../assets/imagenes/logo-removebg-preview (2).png" class="img-responsive" alt=""/>
-					<span class="new-box">
-						<span class="new-label">New</span>
-					</span>
-					<div class="shop_desc">
-						<h3><a href="#">{{p.tipo}}</a></h3>
-						<p>{{p.nombre}}</p>
-						<span class="reducedfrom">$66.00</span>
-						<span class="actual">${{p.costo}}</span><br>
-						<ul class="buttons">
-              <button mat-icon-button color="warn">
-                <mat-icon (click)="addCarrito(p)" >add_shopping_cart</mat-icon>
-              </button>
-							<li class="shop_btn"><a href="#">Read More</a></li>
-							<div class="clear"> </div>
-					    </ul>
-				    </div>
-          </div>
-      </ng-container>
 
 
-      <div class="container">
-        <div class="row">
-            <main id="items" class="col-sm-8 row"></main>
+            <section class="ftco-section">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 text-center mb-5">
+                            <h2 class="heading-section">Carrito de Compras</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-wrap">
+                                <table class="table table-primary table-striped">
+                                    <thead class="thead-dark">
+                                      <tr>
+                                        <th>Tipo</th>
+                                        <th>Costo</th>
+                                        <th>Nombre</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <ng-container *ngFor="let p of tablacarrito">
+                                        <tr>
+                                          <td>{{p.tipo}}</td>
+                                          <td>{{p.costo}}</td>
+                                          <td>{{p.nombre}}</td>
+                                        </tr>
+                                      </ng-container>
+                                    </tbody>
+                                    
+                                  </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+            <div style="text-align:center ;">
+                <form action="https://www.paypal.com" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="5LTC96HEVRWRA">
+                    <input type="image" src="https://www.paypalobjects.com/es_XC/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                    <meta http-equiv="refresh" content="https://www.paypal.com" />
+                    <img alt="" border="0" src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" width="1" height="1">
+                    </form>
+            </div>
             
-            <aside class="col-sm-4">
-                <h2>Carrito</h2>
-                <ul id="carrito" class="list-group"></ul>
-                
-                <table class="table table-primary table-striped">
-                  <thead class="thead-dark">
-                    <tr>
-                      <th>Tipo</th>
-                      <th>Costo</th>
-                      <th>Nombre</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <ng-container *ngFor="let p of tablacarrito">
-                      <tr>
-                        <td>{{p.tipo}}</td>
-                        <td>{{p.costo}}</td>
-                        <td>{{p.nombre}}</td>
-                      </tr>
-                    </ng-container>
-                  </tbody>
-                  
-                </table>
-                <h2><p class="text-right"> Total: &dollar;<span id="total" >{{total}}</span></p></h2>
-                
-          
-                
-                <button id="boton-vaciar" class="btn btn-danger" routerLink="/finalizarventa" >Comprar</button>
-            </aside>
-            
-        </div>
-    </div> 
 
 
         </div>
@@ -251,75 +224,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-
-
-<mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" aria-label="Example">
-        <mat-icon>supervised_user_circle</mat-icon>
-    </button>
-    <span>TIENDA DE ROPA CDCD</span>
-    <span class="example-spacer"></span>
-    <button mat-raised-button color="warn" (click)="openDialogo()">Agregar</button>
-  
-  </mat-toolbar>
-  <div class="form-group">
-    <input type="text" class="form-control" [(ngModel)]='searchTerm' (keyup)="search($event)" placeholder="Buscar Productos">
-  </div>
-  <span class="fas fa-search seacrh-icon"></span>
-  
-  <div class="card-top container-fluid">
-  
-  </div>
-  
-  
-  
-    <div class="container" style="width: 50vw;  height: 50vw ">
-      <div class="row">
-        <table *ngFor="let p of data | filter:searchKey: 'tipo' ">
-          <div class="card col-md-5">
-            <img style="margin: auto ;" src="{{p.imagen}}" alt="" >        
-          </div >
-          <div >
-            <h2 >{{p.nombre}}</h2>
-            <h3>US$ {{p.costo}}</h3>
-            <a>Talla: {{p.talla}}</a>
-            
-          </div>
-          <div>
-            <input type="number" name="q" min="1" max="10" step="1" value="2"> 
-            <button mat-icon-button color="warn">
-              <mat-icon (click)="addCarrito()" >add_shopping_cart</mat-icon>
-            </button>  
-          </div>
-        </table>
-      </div>
-    </div>
-
-
-    <div class="container">
-      <div class="row">
-          <main id="items" class="col-sm-8 row"></main>
-          
-          <aside class="col-sm-4">
-              <h2>Carrito</h2>
-              <ul id="carrito" class="list-group"></ul>
-              <hr>
-          
-              <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
-          </aside>
-      </div>
-  </div>  
-  
-    -->

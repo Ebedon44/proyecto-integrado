@@ -11,6 +11,7 @@ import { AboutComponent } from './component/about/about.component';
 import { UsuariosComponent } from './component/usuarios/usuarios.component';
 import { VentasComponent } from './component/ventas/ventas.component';
 import { HomeComponent } from './home/home.component';
+import { FinalizarVentaComponent } from './component/finalizar-venta/finalizar-venta.component';
 
 const routes: Routes = [
   {
@@ -73,7 +74,8 @@ const routes: Routes = [
   },
   {
     path:'ventas', component:VentasComponent
-  }
+  },
+  {path: 'finalizarventa', component:FinalizarVentaComponent}
 ];
 
 @NgModule({

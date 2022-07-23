@@ -44,6 +44,7 @@ import { RopaListComponent } from './component/ropa-list/ropa-list.component';
 import { UsuariosComponent } from './component/usuarios/usuarios.component';
 import { VentasComponent } from './component/ventas/ventas.component';
 import { InsertVentaComponent } from './component/insert-venta/insert-venta.component';
+import { FinalizarVentaComponent } from './component/finalizar-venta/finalizar-venta.component';
 
 
 
@@ -64,7 +65,8 @@ import { InsertVentaComponent } from './component/insert-venta/insert-venta.comp
     AboutComponent,
     UsuariosComponent,
     VentasComponent,
-    InsertVentaComponent
+    InsertVentaComponent,
+    FinalizarVentaComponent
   ],
   imports: [
     BrowserModule,
