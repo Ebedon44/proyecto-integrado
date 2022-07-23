@@ -10,19 +10,48 @@ import { CarritoComponent } from './component/carrito/carrito.component';
 import { AboutComponent } from './component/about/about.component';
 import { UsuariosComponent } from './component/usuarios/usuarios.component';
 import { VentasComponent } from './component/ventas/ventas.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
-    path:'' , redirectTo:'/login', pathMatch:'full'
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full',
   },
   {
-    path:'signup' , component:SignupComponent
+    path: 'signup',
+    component: SignupComponent,
   },
   {
-    path:'login', component:LoginComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path:'ropa', component:RopaComponent
+    path: 'home',
+    component: HomeComponent,
+    children: [
+      {
+        path: '',
+        pathMatch:'full',
+        component: ProductosComponent,
+      },
+      {
+        path: 'carrito',
+        component: CarritoComponent,
+      },
+      {
+        path: 'cliente',
+        component: InsertClienteComponent,
+      },
+      {
+        path: 'about',
+        component: AboutComponent,
+      },
+      {
+        path: 'ropa',
+        component: RopaComponent,
+      },
+    ],
   },
   {
     path:'productos', component:ProductosComponent
@@ -49,6 +78,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

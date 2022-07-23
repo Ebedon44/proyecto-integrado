@@ -12,8 +12,15 @@ import { ResponseI } from 'src/app/model/response.interface';
 })
 export class LoginComponent implements OnInit {
   loginForm = new FormGroup({
-    usuario: new FormControl('', Validators.required),
-    contrasena: new FormControl('', Validators.required),
+    usuario: new FormControl('', [
+      Validators.required,
+      Validators.nullValidator,
+      Validators.email,
+    ]),
+    contrasena: new FormControl('', [
+      Validators.required,
+      Validators.nullValidator,
+    ]),
   });
   constructor(private loginService: LoginService, private router: Router) {}
 
@@ -26,7 +33,7 @@ export class LoginComponent implements OnInit {
     this.loginService.loginByEmail(form).subscribe((data) => {
       let dataResponse: ResponseI = data;
       if (!dataResponse.status) {
-        this.router.navigate(['ropa']);
+        this.router.navigate(['home']);
       } else {
         this.errorStatus = true;
         this.errorMsg = 'Usuario o contrasena incorrecto';

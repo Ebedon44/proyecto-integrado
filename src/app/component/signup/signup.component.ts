@@ -11,11 +11,23 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
   signupForm = new FormGroup({
     idrol: new FormControl('2', Validators.required),
-    nombre: new FormControl('', Validators.required),
-    contrasena: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
-    telefono: new FormControl('', Validators.required),
-    direccion: new FormControl('', Validators.required),
+    nombre: new FormControl('', [
+      Validators.required,
+      Validators.nullValidator,
+    ]),
+    contrasena: new FormControl('', [
+      Validators.required,
+      Validators.nullValidator,
+    ]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    telefono: new FormControl('', [
+      Validators.required,
+      Validators.nullValidator,
+    ]),
+    direccion: new FormControl('', [
+      Validators.required,
+      Validators.nullValidator,
+    ]),
   });
   constructor(private signupService: signupService, private router: Router) {}
 

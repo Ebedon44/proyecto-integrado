@@ -37,6 +37,7 @@ import { SignupComponent } from './component/signup/signup.component'
 import { CarritoComponent } from './component/carrito/carrito.component';
 import { AboutComponent } from './component/about/about.component';
 import { NgToastModule } from 'ng-angular-popup';
+import { HomeComponent } from './home/home.component';
 
 import { RopaListComponent } from './component/ropa-list/ropa-list.component';
 
