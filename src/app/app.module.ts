@@ -37,13 +37,13 @@ import { SignupComponent } from './component/signup/signup.component'
 import { CarritoComponent } from './component/carrito/carrito.component';
 import { AboutComponent } from './component/about/about.component';
 import { NgToastModule } from 'ng-angular-popup';
-<<<<<<< HEAD
+
 import { RopaListComponent } from './component/ropa-list/ropa-list.component';
-=======
+
 import { UsuariosComponent } from './component/usuarios/usuarios.component';
 import { VentasComponent } from './component/ventas/ventas.component';
 import { InsertVentaComponent } from './component/insert-venta/insert-venta.component';
->>>>>>> 650a63ce03fce43567a2f2598c22e647d49e1e98
+
 
 
 //import { FlexLayoutModule } from '@angular/flex-layout';
@@ -61,13 +61,9 @@ import { InsertVentaComponent } from './component/insert-venta/insert-venta.comp
     SignupComponent,
     CarritoComponent,
     AboutComponent,
-<<<<<<< HEAD
-    RopaListComponent,
-=======
     UsuariosComponent,
     VentasComponent,
     InsertVentaComponent
->>>>>>> 650a63ce03fce43567a2f2598c22e647d49e1e98
   ],
   imports: [
     BrowserModule,

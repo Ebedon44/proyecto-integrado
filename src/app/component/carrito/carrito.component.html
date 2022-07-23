@@ -132,8 +132,7 @@
 						<span class="actual">${{p.costo}}</span><br>
 						<ul class="buttons">
               <button mat-icon-button color="warn">
-                <li class="cart">Add To Cart</li>
-                <mat-icon>add_shopping_cart</mat-icon>
+                <mat-icon (click)="addCarrito(p)" >add_shopping_cart</mat-icon>
               </button>
 							<li class="shop_btn"><a href="#">Read More</a></li>
 							<div class="clear"> </div>
@@ -141,6 +140,8 @@
 				    </div>
           </div>
       </ng-container>
+
+
       <div class="container">
         <div class="row">
             <main id="items" class="col-sm-8 row"></main>
@@ -152,25 +153,30 @@
                 <table class="table table-primary table-striped">
                   <thead>
                     <tr>
-                      <th>Prenda</th>
-                      <th>Cantidad</th>
-                      <th>c/u</th>
+                      <th>Tipo</th>
+                      <th>Costo</th>
+                      <th>Nombre</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <ng-container *ngFor="let p of data">
+                    <ng-container *ngFor="let p of tablacarrito">
                       <tr>
                         <td>{{p.tipo}}</td>
                         <td>{{p.costo}}</td>
-                        <td>{{p.talla}}</td>
+                        <td>{{p.nombre}}</td>
                       </tr>
                     </ng-container>
                   </tbody>
                   
                 </table>
-                <p class="text-right">Total: 200<span id="total"></span>&dollar;</p>
+
+                <h3>{{total}}</h3>
+          
+                
+              
                 <button id="boton-vaciar" class="btn btn-danger">Comprar</button>
             </aside>
+            
         </div>
     </div> 
 
@@ -300,7 +306,7 @@
               <h2>Carrito</h2>
               <ul id="carrito" class="list-group"></ul>
               <hr>
-              <p class="text-right">Total: <span id="total"></span>&euro;</p>
+          
               <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
           </aside>
       </div>
